@@ -34,3 +34,26 @@ jobs:
         env:
           ADMIN_PASSWORD: admin123
         run: curl -sS -H "X-Admin-Password: $ADMIN_PASSWORD" http://localhost:3000/answers | jq . >/dev/null
+
+      - name: Build web-react
+        working-directory: web-react
+        run: |
+          npm ci
+          npm run build
+
+      - name: Copy build to web
+        run: |
+          rm -rf web/* || true
+          cp -r web-react/dist/* web/
+
+      - name: Install E2E deps
+        working-directory: e2e
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: e2e
+        run: npx playwright install --with-deps
+
+      - name: Run E2E tests
+        working-directory: e2e
+        run: npm test
