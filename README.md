@@ -1,5 +1,7 @@
 # ORISH53 — MVP scaffold
 
+[![CI](https://github.com/shitritori1305-spec/ORISH53/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/shitritori1305-spec/ORISH53/actions/workflows/ci.yml)
+
 מיזם MVP קטן שמכיל שרת Express ושאלון אישי לשימוש כבסיס לאפליקציית הרגלים.
 
 הרכיבים:
