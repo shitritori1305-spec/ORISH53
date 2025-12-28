@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ORISH53 — כניסת מנהל</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main style="max-width:480px;margin:40px auto;padding:20px;background:#fff;border-radius:10px">
+    <h1>כניסת מנהל</h1>
+    <p>הזן סיסמת מנהל כדי לגשת לעמוד הניהול.</p>
+    <label for="p">סיסמה</label>
+    <input id="p" type="password" />
+    <div style="margin-top:12px">
+      <button id="ok">התחבר</button>
+    </div>
+  </main>
+  <script>
+    document.getElementById('ok').addEventListener('click', ()=>{
+      const p = document.getElementById('p').value;
+      if(!p) return alert('הכנס סיסמה');
+      // redirect using query param (server accepts this)
+      location.href = '/admin.html?admin_password=' + encodeURIComponent(p);
+    });
+  </script>
+</body>
+</html>
